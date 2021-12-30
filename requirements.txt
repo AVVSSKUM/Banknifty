@@ -4,4 +4,4 @@ nsetools
 nsepy
 pandas
 smartapi
-math
+
