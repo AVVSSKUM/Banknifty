@@ -3,6 +3,5 @@ requests
 nsetools
 nsepy
 pandas
-threading
 smartapi
 math
