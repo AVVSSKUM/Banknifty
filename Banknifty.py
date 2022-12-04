@@ -1,5 +1,6 @@
 import json
 import requests
+import pyotp
 from threading import Timer
 import math
 import pandas as pd
@@ -12,11 +13,15 @@ import datetime, time, sys
 from nsetools import Nse
 from nsepy import get_history
 #filterwarnings("ignore")
-api_key = 'rDqE7Caq'
-UserId = 'A114028'
-Password = 'SYAM2831#123'
-obj = SmartConnect(api_key=api_key)
-data = obj.generateSession(UserId, Password)
+userid="A114028"
+apikey = "qdMI0jLV"
+secretkey= "f655fc2b-fefb-4e34-b33f-aa4fc92f6a80"
+password="s84jWQ"
+obj=SmartConnect(api_key=apikey)
+otp = "CBJQMNQKMDJUCKBZ5SEKA63CWY"
+totp = pyotp.TOTP(otp)
+totp = totp.now()
+data = obj.generateSession(userid,password,totp)
 refreshToken = data['data']['refreshToken']
 flag = 0
 bot_token = '2128421945:AAHz-s9UwmnCoXP4zbcQjTUm5KSS0EtHzl8'
